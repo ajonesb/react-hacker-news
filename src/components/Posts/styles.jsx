@@ -14,6 +14,9 @@ export const PostContainer = styled.div`
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 `;
 
 export const PostTitle = styled.h3`

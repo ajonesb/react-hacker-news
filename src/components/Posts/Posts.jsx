@@ -6,7 +6,9 @@ import { Container } from "./styles";
 const Posts = ({ filter }) => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [likedPosts, setLikedPosts] = useState([]);
+  const [likedPosts, setLikedPosts] = useState(
+    JSON.parse(localStorage.getItem("likedPosts")) || []
+  );
 
   useEffect(() => {
     setLoading(true);
@@ -23,14 +25,24 @@ const Posts = ({ filter }) => {
   }, []);
 
   const handleLike = (postId) => {
-    const alreadyLiked = likedPosts.find((post) => post.objectID === postId);
-    if (alreadyLiked) {
-      setLikedPosts(likedPosts.filter((post) => post.objectID !== postId));
+    const postIndex = posts.findIndex((post) => post.objectID === postId);
+    const alreadyLikedIndex = likedPosts.findIndex(
+      (post) => post.objectID === postId
+    );
+    if (alreadyLikedIndex === -1) {
+      const postToLike = posts[postIndex];
+      setLikedPosts([...likedPosts, postToLike]);
     } else {
-      const post = posts.find((post) => post.objectID === postId);
-      setLikedPosts([...likedPosts, post]);
+      const newLikedPosts = likedPosts.filter(
+        (post) => post.objectID !== postId
+      );
+      setLikedPosts(newLikedPosts);
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem("likedPosts", JSON.stringify(likedPosts));
+  }, [likedPosts]);
 
   const filteredPosts = filter === "liked" ? likedPosts : posts;
 
@@ -49,5 +61,6 @@ const Posts = ({ filter }) => {
     </Container>
   );
 };
+
 
 export default Posts;

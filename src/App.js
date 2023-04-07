@@ -1,14 +1,12 @@
 import "./App.css";
-import DropdownSelector from "./components/DropdownSelector";
 import Header from "./components/Header/Header";
-import Posts from "./components/Posts/Posts";
+import Tabs from "./components/Tabs/Tabs";
 
 function App() {
   return (
     <>
       <Header />
-      <DropdownSelector />
-      <Posts />
+      <Tabs/>
     </>
   );
 }

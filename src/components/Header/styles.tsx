@@ -27,4 +27,9 @@ export const Title = styled.h1`
   line-height: 1;
   letter-spacing: normal;
   color: #3b3b3b; ;
+
+  @media screen and (max-width: 992px) {
+    text-align: center;
+    margin: auto;
+  }
 `;

@@ -24,5 +24,7 @@ export const SelectPosts = styled.select`
 
   @media screen and (max-width: 600px) {
     width: 90%;
+    margin: 20px 0px 1px 5%;
+
   }
 `;

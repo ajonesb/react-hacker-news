@@ -28,51 +28,40 @@ function App() {
 
   const fetchPosts = async (opt) => {
     const res = await fetch(
-      "https://hn.algolia.com/api/v1/search_by_date?query=" +
-        opt.toLowerCase() +
-        "&page=0"
+      `https://hn.algolia.com/api/v1/search_by_date?query=${opt.toLowerCase()}&page=0`
     );
     const data = await res.json();
-    const hitList = [];
 
-    //push localFavs on current data
-    data.hits.forEach((hit) => {
-      hit.localFavs = getLocalStorageFavs(hit.objectID);
-      if (
-        hit.author !== undefined &&
-        hit.author !== null &&
-        hit.story_title !== undefined &&
-        hit.story_title !== null &&
-        hit.story_url !== undefined &&
-        hit.story_url !== null &&
-        hit.created_at !== undefined &&
-        hit.created_at !== null
-      ) {
-        // if the title is too long
-        hit.story_title =
+    const hitList = data.hits
+      .filter(
+        (hit) =>
+          hit.author && hit.story_title && hit.story_url && hit.created_at
+      )
+      .map((hit) => ({
+        ...hit,
+        localFavs: getLocalStorageFavs(hit.objectID),
+        story_title:
           hit.story_title.length > 60
             ? hit.story_title.substring(0, 60) + " ..."
-            : hit.story_title;
-        hitList.push(hit);
-      }
-    });
+            : hit.story_title,
+      }));
 
     return hitList;
   };
 
   //Toggle Favs
+
   const toggleFavs = (id) => {
     const localFav = getLocalStorageFavs(id) === "true" ? "false" : "true";
-    localStorage.setItem("localStorageFavs_" + id, localFav);
-    setPosts(
-      posts.map((post) =>
-        post.objectID === id ? { ...post, localFavs: localFav } : post
-      )
+    localStorage.setItem(`localStorageFavs_${id}`, localFav);
+
+    const updatedPosts = posts.map((post) =>
+      post.objectID === id ? { ...post, localFavs: localFav } : post
     );
-    setFilteredPosts(currentFilter === "all" ? posts : getLocalFavs);
+
+    setPosts(updatedPosts);
+    setFilteredPosts(currentFilter === "all" ? updatedPosts : getLocalFavs());
   };
-
-
 
   //filter local favs
   const showLocalFavs = () => {

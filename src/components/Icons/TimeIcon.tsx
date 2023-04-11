@@ -1,12 +1,12 @@
 import React, { FC } from "react";
 
-interface Props {
+interface TimeIconProps {
   width?: number;
   height?: number;
   color?: string;
 }
 
-const ClockIcon: FC<Props> = ({
+const ClockIcon: FC<TimeIconProps> = ({
   width = 16,
   height = 16,
   color = "#606060",

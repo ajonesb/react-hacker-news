@@ -1,7 +1,3 @@
-// import iconTime from "../../img/iconmonstr-time-2.svg";
-// import iconFavs3 from "../../img/iconmonstr-favorite-3.svg";
-// import iconFavs2 from "../../img/iconmonstr-favorite-2.svg";
-
 import ClockIcon from "../Icons/TimeIcon";
 import HeartIcon from "../Icons/HeartIcon";
 import HeartOutlineIcon from "../Icons/HeartOutlineIcon";
@@ -30,7 +26,6 @@ interface PostProps {
 }
 
 const Post: React.FC<PostProps> = ({ post, onToggle }) => {
-  // const Post = ({ post, onToggle }) => {
   const handleToggle = () => {
     onToggle(post.objectID);
   };
@@ -44,7 +39,6 @@ const Post: React.FC<PostProps> = ({ post, onToggle }) => {
           </FavoriteIcon>
         </LikeContent>
         <TimeIcon>
-          {/* <img src={iconTime} alt="iconTime" /> */}
           <ClockIcon />
         </TimeIcon>
         <PostDate>

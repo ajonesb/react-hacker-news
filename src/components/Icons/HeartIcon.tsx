@@ -1,14 +1,12 @@
 import React, { FC } from "react";
 
-// this one is iconmonstr-favorite-2.svg
-
-interface Props {
+interface ClockIconProps {
   width?: number;
   height?: number;
   color?: string;
 }
 
-const HeartIcon: FC<Props> = ({
+const HeartIcon: FC<ClockIconProps> = ({
   width = 24,
   height = 22,
   color = "#DD0031",

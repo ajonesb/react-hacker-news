@@ -1,14 +1,12 @@
 import React, { FC } from "react";
 
-// this one is iconmonstr-favorite-3.svg
-
-interface Props {
+interface HeartOutlineIconProps {
   width?: number;
   height?: number;
   color?: string;
 }
 
-const HeartOutlineIcon: FC<Props> = ({
+const HeartOutlineIcon: FC<HeartOutlineIconProps> = ({
   width = 24,
   height = 22,
   color = "#DD0031",

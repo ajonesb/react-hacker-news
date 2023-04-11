@@ -1,12 +1,15 @@
-import React from "react";
-import { HeaderContainer, Title } from "./styles";
+import { HeaderStyles, Title } from "./styles";
 
-const Header = () => {
+const Header = ({ title }) => {
   return (
-    <HeaderContainer>
-      <Title>Hacker News</Title>
-    </HeaderContainer>
+    <HeaderStyles>
+      <Title>{title}</Title>
+    </HeaderStyles>
   );
+};
+
+Header.defaultProps = {
+  title: "HACKER NEWS",
 };
 
 export default Header;

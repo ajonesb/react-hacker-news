@@ -1,45 +1,28 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-`;
+export const SelectPosts = styled.select`
+  width: 20%;
+  height: 32px;
+  margin: 63px 114px 1px 10%;
+  padding: 5px 12px 5px 12px;
+  border-radius: 4px;
+  border: solid 1px #2e2e2e;
+  background-color: #ffffff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.57;
+  letter-spacing: normal;
+  color: #343434;
 
-export const PostContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 45%;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
-  @media (max-width: 768px) {
-    width: 100%;
+  @media screen and (max-width: 992px) {
+    width: 42.5%;
+    margin: 63px 114px 1px 5%;
   }
-`;
 
-export const PostTitle = styled.h3`
-  margin: 0;
-  font-size: 20px;
-  font-weight: 500;
-  color: #333;
-`;
-
-export const PostAuthor = styled.span`
-  margin: 10px 0;
-  font-size: 14px;
-  color: #777;
-`;
-
-export const PostTime = styled.span`
-  margin: 10px 0;
-  font-size: 14px;
-  color: #777;
-`;
-
-export const LikeIcon = styled.span`
-  font-size: 20px;
-  color: ${(props) => (props.liked ? "#ff0000" : "#777")};
-  cursor: pointer;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 `;

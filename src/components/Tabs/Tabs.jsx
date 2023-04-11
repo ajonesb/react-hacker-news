@@ -1,56 +1,25 @@
-import React, { useState } from "react";
-import styled from "styled-components";
-import Posts from "../Posts/Posts";
+import React from "react";
+import { TabsContainer, ButtonAllPosts, ButtonLocalFavs } from "./styles";
 
-const TabsContainer = styled.div`
-  ul {
-    display: flex;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border-bottom: 1px solid #ccc;
-  }
-  li {
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
-    color: #ccc;
-    &.active {
-      color: #000;
-      border-bottom: 2px solid #000;
-    }
-  }
-`;
-
-const Tabs = () => {
-  const [activeTab, setActiveTab] = useState("all");
-
-  const handleTabClick = (tab) => {
-    setActiveTab(tab);
-  };
-
+const Tabs = ({ showLocalFavs, showAllPosts, currentFilter }) => {
   return (
-    <TabsContainer>
-      <ul>
-        <li
-          className={activeTab === "all" ? "active" : ""}
-          onClick={() => handleTabClick("all")}
+    <>
+      <TabsContainer>
+        <ButtonAllPosts
+          className={currentFilter === "all" ? "active" : ""}
+          onClick={() => showAllPosts()}
         >
           All
-        </li>
-        <li
-          className={activeTab === "myFavs" ? "active" : ""}
-          onClick={() => handleTabClick("myFavs")}
+        </ButtonAllPosts>
+
+        <ButtonLocalFavs
+          className={currentFilter === "favs" ? "active" : ""}
+          onClick={() => showLocalFavs()}
         >
           My Favs
-        </li>
-      </ul>
-      <div className="tab-content">
-        {activeTab === "all" && <Posts />}
-        {activeTab === "myFavs" && <Posts filter="liked" />}
-      </div>
-    </TabsContainer>
+        </ButtonLocalFavs>
+      </TabsContainer>
+    </>
   );
 };
 

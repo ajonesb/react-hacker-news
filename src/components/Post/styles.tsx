@@ -76,7 +76,7 @@ export const LikeContent = styled.div`
   background-color: rgba(96, 96, 96, 0.06);
 `;
 
-export const FavoriteIcon = styled.img`
+export const FavoriteIcon = styled.div`
   width: 24px;
   height: 22px;
   object-fit: contain;

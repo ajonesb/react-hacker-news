@@ -1,4 +1,4 @@
-import { getLocalStorageFavs } from "./components/LocalStorageUtils/LocalStorageUtils";
+import { getLocalStorageFavs } from "./components/LocalStorageUtils/LocalStorageUtils.tsx";
 
 export const fetchPosts = async (opt) => {
   const res = await fetch(

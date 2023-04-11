@@ -1,6 +1,11 @@
+import React from "react";
 import { HeaderStyles, Title } from "./styles";
 
-const Header = ({ title }) => {
+interface HeaderProps {
+  title: string;
+}
+
+const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <HeaderStyles>
       <Title>{title}</Title>

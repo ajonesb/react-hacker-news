@@ -38,7 +38,13 @@ const Posts = ({
       </div>
 
       {posts.map((post) => (
-        <Post key={post.objectID} post={post} onToggle={onToggle}></Post>
+        <Post
+          key={post.objectID}
+          post={post}
+          onToggle={onToggle}
+          story_title={post.story_title}
+          story_url={post.story_url}
+        />
       ))}
     </>
   );

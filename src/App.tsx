@@ -8,15 +8,23 @@ import {
 } from "./components/LocalStorageUtils/LocalStorageUtils";
 
 import { fetchPosts } from "./api";
+import React from "react";
+
+interface Post {
+  localFavs: string;
+  objectID: string;
+  title: string;
+  url: string;
+}
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [filteredPosts, setFilteredPosts] = useState([]);
-  const [currentFilter, setCurrentFilter] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [currentFilter, setCurrentFilter] = useState<string>("");
 
   let getLocalFavs = posts.filter((e) => e.localFavs === "true");
 
-  const getPosts = async (opt) => {
+  const getPosts = async (opt: string) => {
     const postsFromAPI = await fetchPosts(opt);
     setPosts(postsFromAPI);
     setFilteredPosts(postsFromAPI);
@@ -25,7 +33,7 @@ function App() {
 
   useEffect(() => {
     const selectedNews = getLocalStorageSelectedNews();
-    const getPosts = async (opt) => {
+    const getPosts = async (opt: string) => {
       const postsFromAPI = await fetchPosts(opt);
       setPosts(postsFromAPI);
       setFilteredPosts(postsFromAPI);
@@ -36,7 +44,7 @@ function App() {
 
   //Toggle Favs
 
-  const toggleFavs = (id) => {
+  const toggleFavs = (id: string) => {
     const localFav = getLocalStorageFavs(id) === "true" ? "false" : "true";
     localStorage.setItem(`localStorageFavs_${id}`, localFav);
 
@@ -45,7 +53,7 @@ function App() {
     );
 
     setPosts(updatedPosts);
-    setFilteredPosts(currentFilter === "all" ? updatedPosts : getLocalFavs());
+    setFilteredPosts(currentFilter === "all" ? updatedPosts : getLocalFavs);
   };
 
   //filter local favs
@@ -60,14 +68,14 @@ function App() {
     setCurrentFilter("all");
   };
 
-  const selectNews = (selected) => {
+  const selectNews = (selected: string) => {
     setLocalStorageSelectedNews(selected);
     getPosts(selected);
   };
 
   return (
     <div className="container">
-      <Header />
+      <Header title="Hacker News" />
 
       {posts.length > 0 ? (
         <Posts

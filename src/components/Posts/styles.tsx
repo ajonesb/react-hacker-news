@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const SelectPosts = styled.select`
-  width: 20%;
+  width: 14%;
   height: 32px;
   margin: 63px 114px 1px 10%;
   padding: 5px 12px 5px 12px;

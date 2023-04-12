@@ -3,31 +3,31 @@
 This application fetches articles from the Hacker News API: https://hn.algolia.com/api
 It is developed with React, Styled Components, Typescript, and Jest for basic unit tests.
 
-# Design
+## Design
 
 The design details and specifications like font family, size, colors, etc., as well as the assets
 to build the UI, are available on Zeplin using the following information:
-Project: https://zpl.io/2vJKgqQ
-User: recruitment@reign.cl
-Password: reignrecruitment!
+- Project: https://zpl.io/2vJKgqQ
+- User: recruitment@reign.cl
+- Password: reignrecruitment!
 
-# FUNCTIONALITY
+## FUNCTIONALITY
 
-● The selected filter persists on the local storage.
-● The favorite posts persist on the local storage.
-● The web app is a responsive web application.
-● When clicking on the row, a new tab opens with the link of the post
-(story_url).
-● Clicking on the “like button” doesn't trigger the opening of the post URL link.
-● When hovering on the row, applied opacity to the entire row and its children (texts,
-icons, like button, etc).
+- The selected filter persists on the local storage.
+- The favorite posts persist on the local storage.
+- The web app is a responsive web application.
+- When clicking on the row, a new tab opens with the link of the post
+  (story_url).
+- Clicking on the “like button” doesn't trigger the opening of the post URL link.
+- When hovering on the row, applied opacity to the entire row and its children (texts,
+  icons, like button, etc).
 
-# BONUS
+## BONUS
 
 ● Implemented basic unit tests `App.jest.js`
 ● Typescript
 
-# Future Modifications:
+## Future Modifications:
 
 ● Pagination as infinite scroll
 
@@ -102,6 +102,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-# Demo
+## Demo
 
 https://react-typescript-hacker-news.netlify.app/

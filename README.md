@@ -7,6 +7,7 @@ It is developed with React, Styled Components, Typescript, and Jest for basic un
 
 The design details and specifications like font family, size, colors, etc., as well as the assets
 to build the UI, are available on Zeplin using the following information:
+
 - Project: https://zpl.io/2vJKgqQ
 - User: recruitment@reign.cl
 - Password: reignrecruitment!
@@ -24,12 +25,12 @@ to build the UI, are available on Zeplin using the following information:
 
 ## BONUS
 
-● Implemented basic unit tests `App.jest.js`
-● Typescript
+- Implemented basic unit tests `App.jest.js`
+- Typescript
 
 ## Future Modifications:
 
-● Pagination as infinite scroll
+- Pagination as infinite scroll
 
 # Getting Started with Create React App
 

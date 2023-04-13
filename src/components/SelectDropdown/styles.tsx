@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const SelectPosts = styled.select`
+export const StyledSelectDropdown = styled.select`
   width: 14%;
   height: 32px;
   margin: 63px 114px 1px 10%;
@@ -25,6 +25,5 @@ export const SelectPosts = styled.select`
   @media screen and (max-width: 600px) {
     width: 90%;
     margin: 20px 0px 1px 5%;
-
   }
 `;

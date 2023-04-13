@@ -1,6 +1,6 @@
 import Post from "../Post/Post";
 import Tabs from "../Tabs/Tabs";
-import { SelectPosts } from "./styles";
+import SelectDropdown from "../SelectDropdown/SelectDropdown";
 
 const Posts = ({
   posts,
@@ -25,7 +25,7 @@ const Posts = ({
       ></Tabs>
 
       <div>
-        <SelectPosts
+        <SelectDropdown
           id="idsSelectedNews"
           onChange={handleSelectNews}
           value={selectedNews}
@@ -34,7 +34,7 @@ const Posts = ({
           <option value="angular">Angular</option>
           <option value="reactjs">ReactJs</option>
           <option value="vuejs">VueJs</option>
-        </SelectPosts>
+        </SelectDropdown>
       </div>
 
       {posts.map((post) => (

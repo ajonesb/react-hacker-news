@@ -5,7 +5,7 @@ import {
   getLocalStorageFavs,
   getLocalStorageSelectedNews,
   setLocalStorageSelectedNews,
-} from "./components/LocalStorageUtils/LocalStorageUtils";
+} from "./utils/LocalStorageUtils/LocalStorageUtils";
 
 import { fetchPosts } from "./api";
 import React from "react";

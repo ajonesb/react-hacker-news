@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Posts from "./components/Posts/Posts";
-import {
-  getLocalStorageFavs,
-  getLocalStorageSelectedNews,
-  setLocalStorageSelectedNews,
-} from "./utils/LocalStorageUtils/LocalStorageUtils";
+
+import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
+import getLocalStorageSelectedNews from "./utils/LocalStorageUtils/getLocalStorageSelectedNews";
+import setLocalStorageSelectedNews from "./utils/LocalStorageUtils/setLocalStorageSelectedNews";
 
 import { fetchPosts } from "./api";
-import React from "react";
 
 interface Post {
   localFavs: string;

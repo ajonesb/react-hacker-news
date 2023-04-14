@@ -1,4 +1,4 @@
-import { getLocalStorageFavs } from "./utils/LocalStorageUtils/LocalStorageUtils";
+import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
 
 export const fetchPosts = async (opt) => {
   const res = await fetch(

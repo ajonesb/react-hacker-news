@@ -21,7 +21,7 @@ function App() {
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [currentFilter, setCurrentFilter] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [postsPerPage, setPostsPerPage] = useState<number>(8);
+  const [postsPerPage] = useState<number>(8);
 
   let getLocalFavs = posts.filter((e) => e.localFavs === "true");
 

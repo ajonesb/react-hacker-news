@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Posts from "./components/Posts/Posts";
+import Pagination from "./components/Pagination/Pagination";
 
 import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
 import getLocalStorageSelectedNews from "./utils/LocalStorageUtils/getLocalStorageSelectedNews";
@@ -19,11 +20,13 @@ function App() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
   const [currentFilter, setCurrentFilter] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [postsPerPage, setPostsPerPage] = useState<number>(8);
 
   let getLocalFavs = posts.filter((e) => e.localFavs === "true");
 
   const getPosts = async (opt: string) => {
-    const postsFromAPI = await fetchPosts(opt);
+    const postsFromAPI = await fetchPosts(opt, currentPage);
     setPosts(postsFromAPI);
     setFilteredPosts(postsFromAPI);
     setCurrentFilter("all");
@@ -31,14 +34,14 @@ function App() {
 
   useEffect(() => {
     const selectedNews = getLocalStorageSelectedNews();
-    const getPosts = async (opt: string) => {
-      const postsFromAPI = await fetchPosts(opt);
+    const getPosts = async (opt: string, page: number) => {
+      const postsFromAPI = await fetchPosts(opt, page);
       setPosts(postsFromAPI);
       setFilteredPosts(postsFromAPI);
       setCurrentFilter("all");
     };
-    getPosts(selectedNews);
-  }, []);
+    getPosts(selectedNews, currentPage);
+  }, [currentPage]);
 
   //Toggle Favs
 
@@ -76,15 +79,22 @@ function App() {
       <Header title="Hacker News" />
 
       {posts.length > 0 ? (
-        <Posts
-          posts={currentFilter === "all" ? posts : filteredPosts}
-          showLocalFavs={showLocalFavs}
-          showAllPosts={showAllPosts}
-          currentFilter={currentFilter}
-          onSelect={selectNews}
-          selectedNews={getLocalStorageSelectedNews()}
-          onToggle={toggleFavs}
-        />
+        <>
+          <Posts
+            posts={currentFilter === "all" ? posts : filteredPosts}
+            showLocalFavs={showLocalFavs}
+            showAllPosts={showAllPosts}
+            currentFilter={currentFilter}
+            onSelect={selectNews}
+            selectedNews={getLocalStorageSelectedNews()}
+            onToggle={toggleFavs}
+          />
+          <Pagination
+            postsPerPage={postsPerPage}
+            totalPosts={posts.length}
+            paginate={(pageNumber: number) => setCurrentPage(pageNumber)}
+          />
+        </>
       ) : (
         "No Posts to show"
       )}

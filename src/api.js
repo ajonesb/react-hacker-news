@@ -1,8 +1,8 @@
 import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
 
-export const fetchPosts = async (opt) => {
+export const fetchPosts = async (opt, page) => {
   const res = await fetch(
-    `https://hn.algolia.com/api/v1/search_by_date?query=${opt.toLowerCase()}&page=0`
+    `https://hn.algolia.com/api/v1/search_by_date?query=${opt.toLowerCase()}&page=${page}`
   );
   const data = await res.json();
 

@@ -1,0 +1,44 @@
+/* Using regular vanilla css since you cannot use 
+Styled Components with the React Paginate library. 
+https://github.com/AdeleD/react-paginate
+*/
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  bottom: 24px;
+  position: fixed;
+  width: 100%;
+  list-style-type: none;
+}
+
+.page-link {
+  border-radius: 6px;
+  border: solid 1px #d9d9d9;
+  background-color: #fff;
+  color: rgba(0, 0, 0, 0.65);
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.page-link:hover {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.page-link:active {
+  background-color: #1890ff;
+  color: #fff;
+}
+
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.active {
+  font-weight: bold;
+}

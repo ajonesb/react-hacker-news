@@ -8,12 +8,8 @@ interface PaginationProps {
   paginate: (pageNumber: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-  postsPerPage,
-  totalPosts,
-  paginate,
-}) => {
-  const pageNumbers = Math.ceil(totalPosts / postsPerPage);
+const Pagination: React.FC<PaginationProps> = ({ paginate }) => {
+  const pageNumbers = 9;
 
   return (
     <ReactPaginate
@@ -22,8 +18,8 @@ const Pagination: React.FC<PaginationProps> = ({
       breakLabel={"..."}
       breakClassName={"break-me"}
       pageCount={pageNumbers}
-      marginPagesDisplayed={9}
-      pageRangeDisplayed={8}
+      marginPagesDisplayed={2}
+      pageRangeDisplayed={10}
       onPageChange={(data) => paginate(data.selected + 1)}
       containerClassName={"pagination"}
       activeClassName={"active"}

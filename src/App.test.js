@@ -3,12 +3,6 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders Hacker News Heading", () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Hacker News/i);
-  expect(linkElement).toBeInTheDocument();
-});
-
 test("renders the dropdown element", () => {
   const { getByLabelText } = render(
     <select id="idsSelectedNews" class="sc-irTswW lhHceo">

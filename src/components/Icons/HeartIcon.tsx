@@ -1,10 +1,5 @@
-import React, { FC } from "react";
-
-interface ClockIconProps {
-  width?: number;
-  height?: number;
-  color?: string;
-}
+import { FC } from "react";
+import { ClockIconProps } from "../../Types/Icons.interfaces";
 
 const HeartIcon: FC<ClockIconProps> = ({
   width = 24,

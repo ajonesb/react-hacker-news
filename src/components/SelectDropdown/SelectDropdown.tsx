@@ -1,11 +1,5 @@
 import { StyledSelectDropdown } from "./styles";
-
-interface SelectDropdownProps {
-  id: string;
-  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
-  value: string;
-  children: React.ReactNode;
-}
+import { SelectDropdownProps } from "../../Types/SelectDropdown.interfaces";
 
 const SelectDropdown = ({
   id,

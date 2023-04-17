@@ -1,12 +1,7 @@
 import ReactPaginate from "react-paginate";
 import React from "react";
 import "./Pagination.css";
-
-interface PaginationProps {
-  postsPerPage: number;
-  totalPosts: number;
-  paginate: (pageNumber: number) => void;
-}
+import { PaginationProps } from "../../Types/Pagination.interfaces";
 
 const Pagination: React.FC<PaginationProps> = ({ paginate }) => {
   const pageNumbers = 9;

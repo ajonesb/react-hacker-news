@@ -13,17 +13,7 @@ import {
   TimeIcon,
 } from "./styles";
 import React from "react";
-
-interface PostProps {
-  post?: any;
-  onToggle: (id: string) => void;
-  objectID?: string;
-  story_title: string;
-  story_url: string;
-  author?: string;
-  localFavs?: string;
-  created_at?: string;
-}
+import { PostProps } from "../../Types/Post.interfaces";
 
 const Post: React.FC<PostProps> = ({ post, onToggle }) => {
   const handleToggle = () => {

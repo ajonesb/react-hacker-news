@@ -1,10 +1,5 @@
-import React, { FC } from "react";
-
-interface HeartOutlineIconProps {
-  width?: number;
-  height?: number;
-  color?: string;
-}
+import { FC } from "react";
+import { HeartOutlineIconProps } from "../../Types/Icons.interfaces";
 
 const HeartOutlineIcon: FC<HeartOutlineIconProps> = ({
   width = 24,

@@ -1,6 +1,5 @@
-import { fetchPosts } from "./api";
-import React from "react";
-import { render, screen } from "@testing-library/react";
+import fetchPosts from "./services/fetchPosts";
+import { render } from "@testing-library/react";
 import App from "./App";
 
 test("renders the dropdown element", () => {

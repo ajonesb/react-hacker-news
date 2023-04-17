@@ -2,23 +2,17 @@ import { useState, useEffect } from "react";
 import Header from "./components/Header/Header";
 import Posts from "./components/Posts/Posts";
 import Pagination from "./components/Pagination/Pagination";
-
+import { AppInitialStateProps } from "../src/Types/App.interfaces";
 import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
 import getLocalStorageSelectedNews from "./utils/LocalStorageUtils/getLocalStorageSelectedNews";
 import setLocalStorageSelectedNews from "./utils/LocalStorageUtils/setLocalStorageSelectedNews";
-
-import { fetchPosts } from "./api";
-
-interface Post {
-  localFavs: string;
-  objectID: string;
-  title: string;
-  url: string;
-}
+import fetchPosts from "./services/fetchPosts";
 
 function App() {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<AppInitialStateProps[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<AppInitialStateProps[]>(
+    []
+  );
   const [currentFilter, setCurrentFilter] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [postsPerPage] = useState<number>(8);

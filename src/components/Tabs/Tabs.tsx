@@ -1,11 +1,6 @@
 import React from "react";
 import { TabsContainer, ButtonAllPosts, ButtonLocalFavs } from "./styles";
-
-interface TabsProps {
-  showLocalFavs: () => void;
-  showAllPosts: () => void;
-  currentFilter: string;
-}
+import { TabsProps } from "../../Types/Tabs.interfaces";
 
 const Tabs: React.FC<TabsProps> = ({
   showLocalFavs,

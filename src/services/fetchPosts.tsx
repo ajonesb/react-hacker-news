@@ -1,6 +1,7 @@
-import getLocalStorageFavs from "./utils/LocalStorageUtils/getLocalStorageFavs";
+import getLocalStorageFavs from "../utils/LocalStorageUtils/getLocalStorageFavs";
+import { HitProps, FetchPostsProps } from "../Types/Api.interfaces";
 
-export const fetchPosts = async (opt, page) => {
+const fetchPosts: FetchPostsProps = async (opt, page) => {
   const res = await fetch(
     `https://hn.algolia.com/api/v1/search_by_date?query=${opt.toLowerCase()}&page=${page}`
   );
@@ -8,9 +9,10 @@ export const fetchPosts = async (opt, page) => {
 
   const hitList = data.hits
     .filter(
-      (hit) => hit.author && hit.story_title && hit.story_url && hit.created_at
+      (hit: HitProps) =>
+        hit.author && hit.story_title && hit.story_url && hit.created_at
     )
-    .map((hit) => ({
+    .map((hit: HitProps) => ({
       ...hit,
       localFavs: getLocalStorageFavs(hit.objectID),
       story_title:
@@ -21,3 +23,5 @@ export const fetchPosts = async (opt, page) => {
 
   return hitList;
 };
+
+export default fetchPosts;

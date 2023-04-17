@@ -42,3 +42,20 @@ https://github.com/AdeleD/react-paginate
 .active {
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .pagination {
+    flex-wrap: wrap;
+    bottom: 15px;
+  }
+
+  .pagination li {
+    margin: 0px;
+    width: 28px;
+  }
+
+  .page-link {
+    padding: 5px 5px;
+    font-size: 13px;
+  }
+}
